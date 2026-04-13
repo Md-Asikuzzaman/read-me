@@ -117,7 +117,7 @@ model User {
 ## 6. Set Up `.env`
 
 ```env
-DATABASE_URL="mongodb+srv://username:password@cluster0.mongodb.net/mydb?retryWrites=true&w=majority"
+DATABASE_URL="mongodb+srv://username:password@mycluster.fceee79.mongodb.net/db-name"
 ```
 
 Get your connection string from **MongoDB Atlas → Connect → Drivers**.
