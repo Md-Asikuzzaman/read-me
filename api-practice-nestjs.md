@@ -327,3 +327,63 @@
 # 🚀 Bonus Suggestion
 After finishing this roadmap, build:
 👉 "E-commerce backend system (Production level)"
+
+
+# 🔐 Production-Grade Security & Scalability Layer (ALL PHASES ADD-ON)
+
+এই section টা সব Phase (1 → 4) এর উপর apply হবে।
+
+---
+
+# 🚦 1. Rate Limiting (VERY IMPORTANT)
+
+## 🎯 Goal:
+API abuse prevent করা (DDOS / spam requests)
+
+## 🧠 Implementation Concept:
+- Per IP limit
+- Per user limit
+- Per route limit
+
+## 🔧 Example Rules:
+- 100 requests / minute per IP
+- Login API → 5 attempts / minute
+- Payment API → strict limit (10/min)
+
+## 🛠 Tools:
+- NestJS Throttler
+- Redis-based rate limit (for distributed system)
+
+---
+
+## 🧪 Protected Endpoints Example:
+
+- `POST /auth/login` → 5/min
+- `POST /auth/register` → 10/min
+- `POST /orders` → 20/min
+- `GET /products` → 100/min
+
+---
+
+# 🔐 2. Authentication & Authorization (JWT + RBAC)
+
+## 🎯 Goal:
+Who can access what
+
+## 🧠 Concepts:
+- JWT (access token)
+- Refresh token
+- Role-Based Access Control (RBAC)
+
+## 👤 Roles:
+- USER
+- ADMIN
+- MODERATOR
+
+## 🔧 Example:
+
+```ts
+@Roles('ADMIN')
+@Get('/users')
+
+
